@@ -1,0 +1,20 @@
+{
+    "name": "sergeydesyatkov/core",
+    "authors": [
+        {
+            "name": "Sergey Desyatkov",
+            "email": "desyatkov@gmail.com"
+        }
+    ],
+    "autoload" : {
+        "classmap" : [
+            "model"
+        ],
+        "files": [
+            "lib/dbclass.php"]
+    },
+    "require": {
+        "vrana/notorm": "dev-master",
+        "slim/slim": "^3.0"
+    }
+}

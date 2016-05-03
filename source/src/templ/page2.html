@@ -1,0 +1,54 @@
+<div class="container" ng-controller="HomeCtrl as controller" ng-hide="controller.preloader">
+    <div class="loader">Loading...</div>
+</div>
+
+<div class="container" ng-controller="HomeCtrl as controller" ng-show="controller.preloader">
+    <div class="col-sm-8">
+        <!--video---------------------------------------------------------------------------------->
+        <div class="videogular-container" >
+            <videogular vg-theme="controller.config.theme" vg-player-ready="controller.onPlayerReady($API)" vg-complete="controller.onCompleteVideo()" >
+                <vg-media vg-src="controller.temp">
+                </vg-media>
+
+                <vg-controls>
+                    <vg-play-pause-button></vg-play-pause-button>
+                    <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+                    <vg-scrub-bar>
+                        <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                    </vg-scrub-bar>
+                    <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+                    <vg-volume>
+                        <vg-mute-button></vg-mute-button>
+                        <vg-volume-bar></vg-volume-bar>
+                    </vg-volume>
+                    <vg-fullscreen-button></vg-fullscreen-button>
+                </vg-controls>
+
+                <vg-overlay-play></vg-overlay-play>
+                <vg-poster vg-url='controller.temp[0].poster'></vg-poster>
+            </videogular>
+            <!--video---------------------------------------------------------------------------------->
+            <div>
+                <p class="comment">Comments</p>
+                <div class = "panel panel-primary" ng-repeat="comments in controller.obj.comments">
+                    <div class = "panel-body">
+                        {{comments.comment}}
+                        <div class="pull-right"> {{comments.date}} </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--sidebar-->
+    <div class="col-sm-3">
+        <ul class="list-group">
+            <li class="list-group-item"><b>Title:</b> {{ controller.obj.fullName }}</li>
+            <li class="list-group-item"><b>Thumbnail Image:</b> <img class="animalimg small thumbnail" ng-src="{{controller.temp[0].poster}}" alt=""></li>
+            <li class="list-group-item"><b>Description</b> {{ controller.obj.descript }}</li>
+            <li class="list-group-item"><b>Duration: </b> {{ controller.obj.duration }}</li>
+            <li class="list-group-item"><b>Raiting: </b>{{ controller.obj.raiting }}</li>
+
+        </ul>
+    </div>
+</div>
