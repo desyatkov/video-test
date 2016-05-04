@@ -1,9 +1,12 @@
 # video-test
-This test project **'Video Library'**
+Test project **'Video Library'**
 
-[Link to test-site ->](http://srv111786.hoster-test.ru/)
+[Link to site =>](http://srv111786.hoster-test.ru/)
 
+#####Webpack/Babel dependencies
+
+Usage:
 ```javascript
-composer 
-npm 
+npm install
+composer install
 ```
